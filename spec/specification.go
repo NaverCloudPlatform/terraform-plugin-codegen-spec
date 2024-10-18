@@ -12,6 +12,25 @@ import (
 	"github.com/NaverCloudPlatform/terraform-plugin-codegen-spec/resource"
 )
 
+type Request struct {
+	Create RequestType    `json:"create,omitempty"`
+	Read   RequestType    `json:"read"`
+	Update []*RequestType `json:"update"`
+	Delete RequestType    `json:"delete"`
+}
+
+type RequestType struct {
+	Parameters  []string     `json:"parameters,omitempty"`
+	RequestBody *RequestBody `json:"request_body,omitempty"`
+}
+
+type RequestBody struct {
+	Name     string   `json:"name"`
+	Required []string `json:"required"`
+}
+
+type Requests []Request
+
 // Specification defines the data source(s), provider, and resource(s) for
 // a [Terraform provider].
 //
@@ -25,6 +44,9 @@ type Specification struct {
 
 	// Resources defines a slice of resource.Resource type.
 	Resources resource.Resources `json:"resources,omitempty"`
+
+	// Request(Parameters, Body) struct for CRUD
+	Requests Requests `json:"requests,omitempty"`
 
 	// Version defines the Provider Code Specification JSON schema version
 	Version string `json:"version,omitempty"`
