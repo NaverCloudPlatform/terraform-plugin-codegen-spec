@@ -28,7 +28,7 @@ A JSON schema (e.g., [0.1](./spec/v0.1/schema.json)) defines the structure of a 
 
 ```json
 {
-  "$id": "https://github.com/hashicorp/terraform-plugin-codegen-spec/spec/v0.1/schema.json",
+  "$id": "https://github.com/NaverCloudPlatform/terraform-plugin-codegen-spec/spec/v0.1/schema.json",
   "$schema": "https://json-schema.org/draft-07/schema",
   "type": "object",
   "properties": {
