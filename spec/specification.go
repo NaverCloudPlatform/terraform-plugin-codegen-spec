@@ -22,6 +22,7 @@ type Request struct {
 type RequestType struct {
 	Parameters  []string     `json:"parameters,omitempty"`
 	RequestBody *RequestBody `json:"request_body,omitempty"`
+	Response    string       `json:"response,omitempty"`
 }
 
 type RequestBody struct {
