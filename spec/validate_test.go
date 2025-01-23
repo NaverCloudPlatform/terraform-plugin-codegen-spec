@@ -262,6 +262,27 @@ func TestValidate_Version0_1(t *testing.T) {
 }`),
 			expected: fmt.Errorf("datasources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
 		},
+		"datasource_float32_attribute_name_invalid": {
+			document: []byte(`{
+"datasources": [
+{
+  "name": "example",
+  "schema": {
+    "attributes": [
+      {
+        "name": "Float32_attribute",
+        "float32": {
+          "computed_optional_required": "optional"
+        }
+      }
+    ]
+  }
+}
+],
+"version": "0.1"
+}`),
+			expected: fmt.Errorf("datasources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
 		"datasource_float64_attribute_name_invalid": {
 			document: []byte(`{
   "datasources": [
@@ -272,6 +293,27 @@ func TestValidate_Version0_1(t *testing.T) {
           {
             "name": "Float64_attribute",
             "float64": {
+              "computed_optional_required": "optional"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "version": "0.1"
+}`),
+			expected: fmt.Errorf("datasources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
+		"datasource_int32_attribute_name_invalid": {
+			document: []byte(`{
+  "datasources": [
+    {
+      "name": "example",
+      "schema": {
+        "attributes": [
+          {
+            "name": "Int32_attribute",
+            "int32": {
               "computed_optional_required": "optional"
             }
           }
@@ -613,6 +655,25 @@ func TestValidate_Version0_1(t *testing.T) {
   }`),
 			expected: fmt.Errorf("provider.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
 		},
+		"provider_float32_attribute_name_invalid": {
+			document: []byte(`{
+"provider": {
+  "name": "example",
+  "schema": {
+    "attributes": [
+      {
+        "name": "Float32_attribute",
+        "float32": {
+          "optional_required": "optional"
+        }
+      }
+    ]
+  }
+},
+"version": "0.1"
+}`),
+			expected: fmt.Errorf("provider.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
 		"provider_float64_attribute_name_invalid": {
 			document: []byte(`{
   "provider": {
@@ -630,6 +691,25 @@ func TestValidate_Version0_1(t *testing.T) {
     },
   "version": "0.1"
   }`),
+			expected: fmt.Errorf("provider.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
+		"provider_int32_attribute_name_invalid": {
+			document: []byte(`{
+"provider": {
+  "name": "example",
+  "schema": {
+    "attributes": [
+      {
+        "name": "Int32_attribute",
+        "int32": {
+          "optional_required": "optional"
+        }
+      }
+    ]
+  }
+},
+"version": "0.1"
+}`),
 			expected: fmt.Errorf("provider.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
 		},
 		"provider_int64_attribute_name_invalid": {
@@ -936,6 +1016,27 @@ func TestValidate_Version0_1(t *testing.T) {
 }`),
 			expected: fmt.Errorf("resources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
 		},
+		"resource_float32_attribute_name_invalid": {
+			document: []byte(`{
+"resources": [
+{
+  "name": "example",
+  "schema": {
+    "attributes": [
+      {
+        "name": "Float32_attribute",
+        "float32": {
+          "computed_optional_required": "optional"
+        }
+      }
+    ]
+  }
+}
+],
+"version": "0.1"
+}`),
+			expected: fmt.Errorf("resources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
 		"resource_float64_attribute_name_invalid": {
 			document: []byte(`{
   "resources": [
@@ -954,6 +1055,27 @@ func TestValidate_Version0_1(t *testing.T) {
     }
   ],
   "version": "0.1"
+}`),
+			expected: fmt.Errorf("resources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
+		},
+		"resource_int32_attribute_name_invalid": {
+			document: []byte(`{
+"resources": [
+{
+  "name": "example",
+  "schema": {
+    "attributes": [
+      {
+        "name": "Int32_attribute",
+        "int32": {
+          "computed_optional_required": "optional"
+        }
+      }
+    ]
+  }
+}
+],
+"version": "0.1"
 }`),
 			expected: fmt.Errorf("resources.0.schema.attributes.0.name: Does not match pattern '^[a-z_][a-z0-9_]*$'"),
 		},

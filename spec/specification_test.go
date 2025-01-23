@@ -189,6 +189,37 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 									},
 								},
 								{
+									Name: "float32_attribute",
+									Float32: &datasource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "float32_attribute_custom_type",
+									Float32: &datasource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Float32Type",
+											ValueType: "basetypes.Float32Value",
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_associated_external_type",
+									Float32: &datasource.Float32Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
 									Name: "float64_attribute",
 									Float64: &datasource.Float64Attribute{
 										ComputedOptionalRequired: schema.Computed,
@@ -210,6 +241,37 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 								{
 									Name: "float64_attribute_associated_external_type",
 									Float64: &datasource.Float64Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute",
+									Int32: &datasource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute_custom_type",
+									Int32: &datasource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Int32Type",
+											ValueType: "basetypes.Int32Value",
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_associated_external_type",
+									Int32: &datasource.Int32Attribute{
 										AssociatedExternalType: &schema.AssociatedExternalType{
 											Import: &code.Import{
 												Path: "example.com/apisdk",
@@ -1281,6 +1343,37 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 								},
 							},
 							{
+								Name: "float32_attribute",
+								Float32: &provider.Float32Attribute{
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "float32_attribute_custom_type",
+								Float32: &provider.Float32Attribute{
+									OptionalRequired: schema.Optional,
+									CustomType: &schema.CustomType{
+										Import: &code.Import{
+											Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+										},
+										Type:      "basetypes.Float32Type",
+										ValueType: "basetypes.Float32Value",
+									},
+								},
+							},
+							{
+								Name: "float32_attribute_associated_external_type",
+								Float32: &provider.Float32Attribute{
+									AssociatedExternalType: &schema.AssociatedExternalType{
+										Import: &code.Import{
+											Path: "example.com/apisdk",
+										},
+										Type: "*apisdk.Type",
+									},
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
 								Name: "float64_attribute",
 								Float64: &provider.Float64Attribute{
 									OptionalRequired: schema.Optional,
@@ -1302,6 +1395,37 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 							{
 								Name: "float64_attribute_associated_external_type",
 								Float64: &provider.Float64Attribute{
+									AssociatedExternalType: &schema.AssociatedExternalType{
+										Import: &code.Import{
+											Path: "example.com/apisdk",
+										},
+										Type: "*apisdk.Type",
+									},
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "int32_attribute",
+								Int32: &provider.Int32Attribute{
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "int32_attribute_custom_type",
+								Int32: &provider.Int32Attribute{
+									OptionalRequired: schema.Optional,
+									CustomType: &schema.CustomType{
+										Import: &code.Import{
+											Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+										},
+										Type:      "basetypes.Int32Type",
+										ValueType: "basetypes.Int32Value",
+									},
+								},
+							},
+							{
+								Name: "int32_attribute_associated_external_type",
+								Int32: &provider.Int32Attribute{
 									AssociatedExternalType: &schema.AssociatedExternalType{
 										Import: &code.Import{
 											Path: "example.com/apisdk",
@@ -2443,6 +2567,46 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 									},
 								},
 								{
+									Name: "float32_attribute",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "float32_attribute_custom_type",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Float32Type",
+											ValueType: "basetypes.Float32Value",
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_default_static",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Optional,
+										Default: &schema.Float32Default{
+											Static: pointer(float32(123.45)),
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_associated_external_type",
+									Float32: &resource.Float32Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
 									Name: "float64_attribute",
 									Float64: &resource.Float64Attribute{
 										ComputedOptionalRequired: schema.Computed,
@@ -2473,6 +2637,46 @@ func TestSpecification_JSONUnmarshal_Version0_1(t *testing.T) {
 								{
 									Name: "float64_attribute_associated_external_type",
 									Float64: &resource.Float64Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute_custom_type",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Int32Type",
+											ValueType: "basetypes.Int32Value",
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_default_static",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Optional,
+										Default: &schema.Int32Default{
+											Static: pointer(int32(123)),
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_associated_external_type",
+									Int32: &resource.Int32Attribute{
 										AssociatedExternalType: &schema.AssociatedExternalType{
 											Import: &code.Import{
 												Path: "example.com/apisdk",
@@ -6029,6 +6233,37 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 									},
 								},
 								{
+									Name: "float32_attribute",
+									Float32: &datasource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "float32_attribute_custom_type",
+									Float32: &datasource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Float32Type",
+											ValueType: "basetypes.Float32Value",
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_associated_external_type",
+									Float32: &datasource.Float32Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
 									Name: "float64_attribute",
 									Float64: &datasource.Float64Attribute{
 										ComputedOptionalRequired: schema.Computed,
@@ -6050,6 +6285,37 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 								{
 									Name: "float64_attribute_associated_external_type",
 									Float64: &datasource.Float64Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute",
+									Int32: &datasource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute_custom_type",
+									Int32: &datasource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Int32Type",
+											ValueType: "basetypes.Int32Value",
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_associated_external_type",
+									Int32: &datasource.Int32Attribute{
 										AssociatedExternalType: &schema.AssociatedExternalType{
 											Import: &code.Import{
 												Path: "example.com/apisdk",
@@ -7121,6 +7387,37 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 								},
 							},
 							{
+								Name: "float32_attribute",
+								Float32: &provider.Float32Attribute{
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "float32_attribute_custom_type",
+								Float32: &provider.Float32Attribute{
+									OptionalRequired: schema.Optional,
+									CustomType: &schema.CustomType{
+										Import: &code.Import{
+											Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+										},
+										Type:      "basetypes.Float32Type",
+										ValueType: "basetypes.Float32Value",
+									},
+								},
+							},
+							{
+								Name: "float32_attribute_associated_external_type",
+								Float32: &provider.Float32Attribute{
+									AssociatedExternalType: &schema.AssociatedExternalType{
+										Import: &code.Import{
+											Path: "example.com/apisdk",
+										},
+										Type: "*apisdk.Type",
+									},
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
 								Name: "float64_attribute",
 								Float64: &provider.Float64Attribute{
 									OptionalRequired: schema.Optional,
@@ -7142,6 +7439,37 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 							{
 								Name: "float64_attribute_associated_external_type",
 								Float64: &provider.Float64Attribute{
+									AssociatedExternalType: &schema.AssociatedExternalType{
+										Import: &code.Import{
+											Path: "example.com/apisdk",
+										},
+										Type: "*apisdk.Type",
+									},
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "int32_attribute",
+								Int32: &provider.Int32Attribute{
+									OptionalRequired: schema.Optional,
+								},
+							},
+							{
+								Name: "int32_attribute_custom_type",
+								Int32: &provider.Int32Attribute{
+									OptionalRequired: schema.Optional,
+									CustomType: &schema.CustomType{
+										Import: &code.Import{
+											Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+										},
+										Type:      "basetypes.Int32Type",
+										ValueType: "basetypes.Int32Value",
+									},
+								},
+							},
+							{
+								Name: "int32_attribute_associated_external_type",
+								Int32: &provider.Int32Attribute{
 									AssociatedExternalType: &schema.AssociatedExternalType{
 										Import: &code.Import{
 											Path: "example.com/apisdk",
@@ -8283,6 +8611,46 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 									},
 								},
 								{
+									Name: "float32_attribute",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "float32_attribute_custom_type",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Float32Type",
+											ValueType: "basetypes.Float32Value",
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_default_static",
+									Float32: &resource.Float32Attribute{
+										ComputedOptionalRequired: schema.Optional,
+										Default: &schema.Float32Default{
+											Static: pointer(float32(123.45)),
+										},
+									},
+								},
+								{
+									Name: "float32_attribute_associated_external_type",
+									Float32: &resource.Float32Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
 									Name: "float64_attribute",
 									Float64: &resource.Float64Attribute{
 										ComputedOptionalRequired: schema.Computed,
@@ -8313,6 +8681,46 @@ func TestSpecification_Generate_Version0_1(t *testing.T) {
 								{
 									Name: "float64_attribute_associated_external_type",
 									Float64: &resource.Float64Attribute{
+										AssociatedExternalType: &schema.AssociatedExternalType{
+											Import: &code.Import{
+												Path: "example.com/apisdk",
+											},
+											Type: "*apisdk.Type",
+										},
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+									},
+								},
+								{
+									Name: "int32_attribute_custom_type",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Computed,
+										CustomType: &schema.CustomType{
+											Import: &code.Import{
+												Path: "github.com/hashicorp/terraform-plugin-framework/types/basetypes",
+											},
+											Type:      "basetypes.Int32Type",
+											ValueType: "basetypes.Int32Value",
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_default_static",
+									Int32: &resource.Int32Attribute{
+										ComputedOptionalRequired: schema.Optional,
+										Default: &schema.Int32Default{
+											Static: pointer(int32(123)),
+										},
+									},
+								},
+								{
+									Name: "int32_attribute_associated_external_type",
+									Int32: &resource.Int32Attribute{
 										AssociatedExternalType: &schema.AssociatedExternalType{
 											Import: &code.Import{
 												Path: "example.com/apisdk",
