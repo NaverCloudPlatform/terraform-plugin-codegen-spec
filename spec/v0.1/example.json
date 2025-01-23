@@ -113,6 +113,37 @@
             }
           },
           {
+            "name": "float32_attribute",
+            "float32": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "float32_attribute_custom_type",
+            "float32": {
+              "computed_optional_required": "computed",
+              "custom_type": {
+                "import": {
+                  "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+                },
+                "type": "basetypes.Float32Type",
+                "value_type": "basetypes.Float32Value"
+              }
+            }
+          },
+          {
+            "name": "float32_attribute_associated_external_type",
+            "float32": {
+              "associated_external_type": {
+                "import": {
+                  "path": "example.com/apisdk"
+                },
+                "type": "*apisdk.Type"
+              },
+              "computed_optional_required": "computed"
+            }
+          },
+          {
             "name": "float64_attribute",
             "float64": {
               "computed_optional_required": "computed"
@@ -134,6 +165,37 @@
           {
             "name": "float64_attribute_associated_external_type",
             "float64": {
+              "associated_external_type": {
+                "import": {
+                  "path": "example.com/apisdk"
+                },
+                "type": "*apisdk.Type"
+              },
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "int32_attribute",
+            "int32": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "int32_attribute_custom_type",
+            "int32": {
+              "computed_optional_required": "computed",
+              "custom_type": {
+                "import": {
+                  "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+                },
+                "type": "basetypes.Int32Type",
+                "value_type": "basetypes.Int32Value"
+              }
+            }
+          },
+          {
+            "name": "int32_attribute_associated_external_type",
+            "int32": {
               "associated_external_type": {
                 "import": {
                   "path": "example.com/apisdk"
@@ -1205,6 +1267,37 @@
           }
         },
         {
+          "name": "float32_attribute",
+          "float32": {
+            "optional_required": "optional"
+          }
+        },
+        {
+          "name": "float32_attribute_custom_type",
+          "float32": {
+            "optional_required": "optional",
+            "custom_type": {
+              "import": {
+                "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+              },
+              "type": "basetypes.Float32Type",
+              "value_type": "basetypes.Float32Value"
+            }
+          }
+        },
+        {
+          "name": "float32_attribute_associated_external_type",
+          "float32": {
+            "associated_external_type": {
+              "import": {
+                "path": "example.com/apisdk"
+              },
+              "type": "*apisdk.Type"
+            },
+            "optional_required": "optional"
+          }
+        },
+        {
           "name": "float64_attribute",
           "float64": {
             "optional_required": "optional"
@@ -1226,6 +1319,37 @@
         {
           "name": "float64_attribute_associated_external_type",
           "float64": {
+            "associated_external_type": {
+              "import": {
+                "path": "example.com/apisdk"
+              },
+              "type": "*apisdk.Type"
+            },
+            "optional_required": "optional"
+          }
+        },
+        {
+          "name": "int32_attribute",
+          "int32": {
+            "optional_required": "optional"
+          }
+        },
+        {
+          "name": "int32_attribute_custom_type",
+          "int32": {
+            "optional_required": "optional",
+            "custom_type": {
+              "import": {
+                "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+              },
+              "type": "basetypes.Int32Type",
+              "value_type": "basetypes.Int32Value"
+            }
+          }
+        },
+        {
+          "name": "int32_attribute_associated_external_type",
+          "int32": {
             "associated_external_type": {
               "import": {
                 "path": "example.com/apisdk"
@@ -2367,6 +2491,46 @@
             }
           },
           {
+            "name": "float32_attribute",
+            "float32": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "float32_attribute_custom_type",
+            "float32": {
+              "computed_optional_required": "computed",
+              "custom_type": {
+                "import": {
+                  "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+                },
+                "type": "basetypes.Float32Type",
+                "value_type": "basetypes.Float32Value"
+              }
+            }
+          },
+          {
+            "name": "float32_attribute_default_static",
+            "float32": {
+              "computed_optional_required": "optional",
+              "default": {
+                "static": 123.45
+              }
+            }
+          },
+          {
+            "name": "float32_attribute_associated_external_type",
+            "float32": {
+              "associated_external_type": {
+                "import": {
+                  "path": "example.com/apisdk"
+                },
+                "type": "*apisdk.Type"
+              },
+              "computed_optional_required": "computed"
+            }
+          },
+          {
             "name": "float64_attribute",
             "float64": {
               "computed_optional_required": "computed"
@@ -2397,6 +2561,46 @@
           {
             "name": "float64_attribute_associated_external_type",
             "float64": {
+              "associated_external_type": {
+                "import": {
+                  "path": "example.com/apisdk"
+                },
+                "type": "*apisdk.Type"
+              },
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "int32_attribute",
+            "int32": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "int32_attribute_custom_type",
+            "int32": {
+              "computed_optional_required": "computed",
+              "custom_type": {
+                "import": {
+                  "path": "github.com/hashicorp/terraform-plugin-framework/types/basetypes"
+                },
+                "type": "basetypes.Int32Type",
+                "value_type": "basetypes.Int32Value"
+              }
+            }
+          },
+          {
+            "name": "int32_attribute_default_static",
+            "int32": {
+              "computed_optional_required": "optional",
+              "default": {
+                "static": 123
+              }
+            }
+          },
+          {
+            "name": "int32_attribute_associated_external_type",
+            "int32": {
               "associated_external_type": {
                 "import": {
                   "path": "example.com/apisdk"
