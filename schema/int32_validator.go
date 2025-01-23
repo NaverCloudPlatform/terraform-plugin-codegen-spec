@@ -3,11 +3,11 @@
 
 package schema
 
-// Int64Validators type defines Int64Validator types
-type Int64Validators []Int64Validator
+// Int32Validators type defines Int32Validator types
+type Int32Validators []Int32Validator
 
 // CustomValidators returns CustomValidator for each Primitive Type Validator.
-func (v Int64Validators) CustomValidators() CustomValidators {
+func (v Int32Validators) CustomValidators() CustomValidators {
 	var customValidators CustomValidators
 
 	for _, validator := range v {
@@ -23,9 +23,9 @@ func (v Int64Validators) CustomValidators() CustomValidators {
 	return customValidators
 }
 
-// Equal returns true if the given Int64Validators is the same
-// length, and each of the Int64Validator entries is equal.
-func (v Int64Validators) Equal(other Int64Validators) bool {
+// Equal returns true if the given Int32Validators is the same
+// length, and each of the Int32Validator entries is equal.
+func (v Int32Validators) Equal(other Int32Validators) bool {
 	if v == nil && other == nil {
 		return true
 	}
@@ -59,13 +59,13 @@ func (v Int64Validators) Equal(other Int64Validators) bool {
 	return true
 }
 
-// Int64Validator type defines type and function that provides validation
+// Int32Validator type defines type and function that provides validation
 // functionality.
-type Int64Validator struct {
+type Int32Validator struct {
 	Custom *CustomValidator `json:"custom,omitempty"`
 }
 
-// Equal returns true if the fields of the given Int64Validator equal.
-func (v Int64Validator) Equal(other Int64Validator) bool {
+// Equal returns true if the fields of the given Int32Validator equal.
+func (v Int32Validator) Equal(other Int32Validator) bool {
 	return v.Custom.Equal(other.Custom)
 }

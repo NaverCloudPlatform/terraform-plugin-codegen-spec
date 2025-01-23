@@ -78,7 +78,9 @@ type ObjectAttributeType struct {
 
 	Bool    *BoolType    `json:"bool,omitempty"`
 	Dynamic *DynamicType `json:"dynamic,omitempty"`
+	Float32 *Float32Type `json:"float32,omitempty"`
 	Float64 *Float64Type `json:"float64,omitempty"`
+	Int32   *Int32Type   `json:"int32,omitempty"`
 	Int64   *Int64Type   `json:"int64,omitempty"`
 	List    *ListType    `json:"list,omitempty"`
 	Map     *MapType     `json:"map,omitempty"`
@@ -118,6 +120,18 @@ func (o ObjectAttributeType) Equal(other ObjectAttributeType) bool {
 		return o.Dynamic.CustomType.Equal(other.Dynamic.CustomType)
 	}
 
+	if o.Float32 == nil && other.Float32 != nil {
+		return false
+	}
+
+	if o.Float32 != nil && other.Float32 == nil {
+		return false
+	}
+
+	if o.Float32 != nil && other.Float32 != nil {
+		return o.Float32.CustomType.Equal(other.Float32.CustomType)
+	}
+
 	if o.Float64 == nil && other.Float64 != nil {
 		return false
 	}
@@ -128,6 +142,18 @@ func (o ObjectAttributeType) Equal(other ObjectAttributeType) bool {
 
 	if o.Float64 != nil && other.Float64 != nil {
 		return o.Float64.CustomType.Equal(other.Float64.CustomType)
+	}
+
+	if o.Int32 == nil && other.Int32 != nil {
+		return false
+	}
+
+	if o.Int32 != nil && other.Int32 == nil {
+		return false
+	}
+
+	if o.Int32 != nil && other.Int32 != nil {
+		return o.Int32.CustomType.Equal(other.Int32.CustomType)
 	}
 
 	if o.Int64 == nil && other.Int64 != nil {

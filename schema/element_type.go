@@ -10,7 +10,9 @@ package schema
 // a single element type.
 type ElementType struct {
 	Bool    *BoolType    `json:"bool,omitempty"`
+	Float32 *Float32Type `json:"float32,omitempty"`
 	Float64 *Float64Type `json:"float64,omitempty"`
+	Int32   *Int32Type   `json:"int32,omitempty"`
 	Int64   *Int64Type   `json:"int64,omitempty"`
 	List    *ListType    `json:"list,omitempty"`
 	Map     *MapType     `json:"map,omitempty"`
@@ -34,6 +36,18 @@ func (e ElementType) Equal(other ElementType) bool {
 		return e.Bool.CustomType.Equal(other.Bool.CustomType)
 	}
 
+	if e.Float32 == nil && other.Float32 != nil {
+		return false
+	}
+
+	if e.Float32 != nil && other.Float32 == nil {
+		return false
+	}
+
+	if e.Float32 != nil && other.Float32 != nil {
+		return e.Float32.CustomType.Equal(other.Float32.CustomType)
+	}
+
 	if e.Float64 == nil && other.Float64 != nil {
 		return false
 	}
@@ -44,6 +58,18 @@ func (e ElementType) Equal(other ElementType) bool {
 
 	if e.Float64 != nil && other.Float64 != nil {
 		return e.Float64.CustomType.Equal(other.Float64.CustomType)
+	}
+
+	if e.Int32 == nil && other.Int32 != nil {
+		return false
+	}
+
+	if e.Int32 != nil && other.Int32 == nil {
+		return false
+	}
+
+	if e.Int32 != nil && other.Int32 != nil {
+		return e.Int32.CustomType.Equal(other.Int32.CustomType)
 	}
 
 	if e.Int64 == nil && other.Int64 != nil {
