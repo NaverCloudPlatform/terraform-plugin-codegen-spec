@@ -33,6 +33,18 @@ func TestElementType_Equal(t *testing.T) {
 			},
 			expected: false,
 		},
+		"float32_nil_other_not_nil": {
+			other: schema.ElementType{
+				Float32: &schema.Float32Type{},
+			},
+			expected: false,
+		},
+		"float32_not_nil_other_nil": {
+			elementType: schema.ElementType{
+				Float32: &schema.Float32Type{},
+			},
+			expected: false,
+		},
 		"float64_nil_other_not_nil": {
 			other: schema.ElementType{
 				Float64: &schema.Float64Type{},
@@ -42,6 +54,18 @@ func TestElementType_Equal(t *testing.T) {
 		"float64_not_nil_other_nil": {
 			elementType: schema.ElementType{
 				Float64: &schema.Float64Type{},
+			},
+			expected: false,
+		},
+		"int32_nil_other_not_nil": {
+			other: schema.ElementType{
+				Int32: &schema.Int32Type{},
+			},
+			expected: false,
+		},
+		"int32_not_nil_other_nil": {
+			elementType: schema.ElementType{
+				Int32: &schema.Int32Type{},
 			},
 			expected: false,
 		},

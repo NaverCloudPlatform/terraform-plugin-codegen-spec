@@ -102,6 +102,18 @@ func TestObjectAttributeType_Equal(t *testing.T) {
 			},
 			expected: false,
 		},
+		"float32_nil_other_not_nil": {
+			other: schema.ObjectAttributeType{
+				Float32: &schema.Float32Type{},
+			},
+			expected: false,
+		},
+		"float32_not_nil_other_nil": {
+			objectAttributeType: schema.ObjectAttributeType{
+				Float32: &schema.Float32Type{},
+			},
+			expected: false,
+		},
 		"float64_nil_other_not_nil": {
 			other: schema.ObjectAttributeType{
 				Float64: &schema.Float64Type{},
@@ -111,6 +123,18 @@ func TestObjectAttributeType_Equal(t *testing.T) {
 		"float64_not_nil_other_nil": {
 			objectAttributeType: schema.ObjectAttributeType{
 				Float64: &schema.Float64Type{},
+			},
+			expected: false,
+		},
+		"int32_nil_other_not_nil": {
+			other: schema.ObjectAttributeType{
+				Int32: &schema.Int32Type{},
+			},
+			expected: false,
+		},
+		"int32_not_nil_other_nil": {
+			objectAttributeType: schema.ObjectAttributeType{
+				Int32: &schema.Int32Type{},
 			},
 			expected: false,
 		},
