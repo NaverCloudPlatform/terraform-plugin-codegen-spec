@@ -77,7 +77,9 @@ type Attribute struct {
 
 	Bool         *BoolAttribute         `json:"bool,omitempty"`
 	Dynamic      *DynamicAttribute      `json:"dynamic,omitempty"`
+	Float32      *Float32Attribute      `json:"float32,omitempty"`
 	Float64      *Float64Attribute      `json:"float64,omitempty"`
+	Int32        *Int32Attribute        `json:"int32,omitempty"`
 	Int64        *Int64Attribute        `json:"int64,omitempty"`
 	List         *ListAttribute         `json:"list,omitempty"`
 	ListNested   *ListNestedAttribute   `json:"list_nested,omitempty"`
@@ -166,6 +168,39 @@ type DynamicAttribute struct {
 	Validators schema.DynamicValidators `json:"validators,omitempty"`
 }
 
+// Float32Attribute represents a Schema attribute that is a 32-bit
+// floating point number.
+//
+// Use Int32Attribute for a 32-bit integer attribute, or NumberAttribute
+// for a 512-bit generic number attribute.
+type Float32Attribute struct {
+	// AssociatedExternalType defines a Go type that can be used to represent a Float32Attribute.
+	AssociatedExternalType *schema.AssociatedExternalType `json:"associated_external_type,omitempty"`
+
+	// ComputedOptionalRequired indicates whether the attribute is required
+	// (`required`), optional (`optional`), computed (`computed`), or
+	// computed and optional (`computed_optional`).
+	ComputedOptionalRequired schema.ComputedOptionalRequired `json:"computed_optional_required"`
+
+	// CustomType defines a custom type and value for the attribute.
+	CustomType *schema.CustomType `json:"custom_type,omitempty"`
+
+	// DeprecationMessage defines a message describing that the attribute
+	// is deprecated.
+	DeprecationMessage *string `json:"deprecation_message,omitempty"`
+
+	// Description defines the purpose and usage of the attribute.
+	Description *string `json:"description,omitempty"`
+
+	// Sensitive indicates whether the value of the attribute should
+	// be considered sensitive data.
+	Sensitive *bool `json:"sensitive,omitempty"`
+
+	// Validators define types and functions that provide validation
+	// functionality for the attribute.
+	Validators schema.Float32Validators `json:"validators,omitempty"`
+}
+
 // Float64Attribute represents a Schema attribute that is a 64-bit
 // floating point number.
 //
@@ -197,6 +232,39 @@ type Float64Attribute struct {
 	// Validators define types and functions that provide validation
 	// functionality for the attribute.
 	Validators schema.Float64Validators `json:"validators,omitempty"`
+}
+
+// Int32Attribute represents a schema attribute that is a 32-bit
+// integer.
+//
+// Use Float32Attribute for a 32-bit floating point number, or
+// NumberAttribute for a 512-bit generic number attribute.
+type Int32Attribute struct {
+	// AssociatedExternalType defines a Go type that can be used to represent a Int32Attribute.
+	AssociatedExternalType *schema.AssociatedExternalType `json:"associated_external_type,omitempty"`
+
+	// ComputedOptionalRequired indicates whether the attribute is required
+	// (`required`), optional (`optional`), computed (`computed`), or
+	// computed and optional (`computed_optional`).
+	ComputedOptionalRequired schema.ComputedOptionalRequired `json:"computed_optional_required"`
+
+	// CustomType defines a custom type and value for the attribute.
+	CustomType *schema.CustomType `json:"custom_type,omitempty"`
+
+	// DeprecationMessage defines a message describing that the attribute
+	// is deprecated.
+	DeprecationMessage *string `json:"deprecation_message,omitempty"`
+
+	// Description defines the purpose and usage of the attribute.
+	Description *string `json:"description,omitempty"`
+
+	// Sensitive indicates whether the value of the attribute should
+	// be considered sensitive data.
+	Sensitive *bool `json:"sensitive,omitempty"`
+
+	// Validators define types and functions that provide validation
+	// functionality for the attribute.
+	Validators schema.Int32Validators `json:"validators,omitempty"`
 }
 
 // Int64Attribute represents a schema attribute that is a 64-bit
